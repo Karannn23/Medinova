@@ -39,12 +39,18 @@
         };
         // callAPI function that takes the base and exponent numbers as parameters
         var callAPI = (name, email, dat, tim, doc, dept) => {
+            if (doc == 1) doc1 = "Dr.Hitesh"
+            else if (doc == 2) doc1 = "Dr.Parihar"
+            else doc1 = "Dr.Kapoor"
+            if (dept == 1) dept1 = "ENT"
+            else if (dept == 2) dept1 = "Dental"
+            else dept1 = "Orthopedic"
             // instantiate a headers object
             var myHeaders = new Headers();
             // add content type header to object
             myHeaders.append("Content-Type", "application/json");
             // using built in JSON utility package turn object to string and store in a variable
-            var raw = JSON.stringify({ "name": name, "email": email, "dat": dat, "tim": tim, "doc": doc, "dept": dept });
+            var raw = JSON.stringify({ "name": name, "email": email, "dat": dat, "tim": tim, "doc": doc1, "dept": dept1 });
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'POST',
@@ -53,10 +59,18 @@
                 redirect: 'follow'
             };
             // make API call with parameters and use promises to get response
-            fetch("https://s2n090g69h.execute-api.us-east-1.amazonaws.com/dev", requestOptions)
+            const resp = fetch("https://s2n090g69h.execute-api.us-east-1.amazonaws.com/dev", requestOptions)
                 .then(response => response.text())
                 .then(result => alert(JSON.parse(result).body))
                 .catch(error => console.log('error', error));
+
+                const data =  resp.json();
+                if (data.error) {
+                alert(data.error);
+            } else {
+                alert(data.body);
+            }
+                window.location.replace("https://main.dh4dtgboji3tt.amplifyapp.com/");
         }
     </script>
 </head>
