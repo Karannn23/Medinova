@@ -63,14 +63,6 @@
                 .then(response => response.text())
                 .then(result => alert(JSON.parse(result).body))
                 .catch(error => console.log('error', error));
-
-                const data =  resp.json();
-                if (data.error) {
-                alert(data.error);
-            } else {
-                alert(data.body);
-            }
-                window.location.replace("https://main.dh4dtgboji3tt.amplifyapp.com/");
         }
     </script>
 </head>
@@ -316,7 +308,7 @@
                 <div class="col-lg-6">
                     <div class="bg-white text-center rounded p-5">
                         <h1 class="mb-4">Book An Appointment</h1>
-                        <form>
+                        <form action="https://main.dh4dtgboji3tt.amplifyapp.com/" method="post">
                             <div class="row g-3">
                                 <div class="col-12 col-sm-6">
                                     <select class="form-select bg-light border-0" id="dept" style="height: 55px;">
