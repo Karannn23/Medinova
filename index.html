@@ -53,7 +53,7 @@
                 redirect: 'follow'
             };
             // make API call with parameters and use promises to get response
-            fetch("YOUR API GATEWAY ENDPOINT", requestOptions)
+            fetch("https://s2n090g69h.execute-api.us-east-1.amazonaws.com/dev", requestOptions)
                 .then(response => response.text())
                 .then(result => alert(JSON.parse(result).body))
                 .catch(error => console.log('error', error));
@@ -342,7 +342,7 @@
                                 </div>
                                 <div class="col-12">
                                     <button class="btn btn-primary w-100 py-3"
-                                     onclick="printCall(document.getElementById('name').value,document.getElementById('email').value,
+                                     onclick="callAPI(document.getElementById('name').value,document.getElementById('email').value,
                                      document.getElementById('dat').value,document.getElementById('tim').value,
                                      document.getElementById('doc').value,document.getElementById('dept').value)"
                                      type="submit">Make An Appointment
